@@ -10,17 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dev.sgp.service.CollaborateurService;
+
 /**
  * @author boukh
  *
  */
 public class EditerCollaborateurController extends HttpServlet {
 
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
 		ServletException, IOException {
 
-
+		req.getRequestDispatcher("/WEB-INF/views/collab/nouveauCollaborateur.jsp")
+		.forward(req, resp);
 
 		String matricule = req.getParameter("matricule");
 		String titre = req.getParameter("titre");
@@ -36,4 +40,6 @@ public class EditerCollaborateurController extends HttpServlet {
 		+ "<p>nom="+ nom + "</p>"
 		+ "<p>prenom="+ prenom + "</p>");
 	}
+	
+
 }
